@@ -2,16 +2,23 @@ import React, { useState } from "react";
 import styles from "./styles.css";
 
 function calculateWinner(squares) {
-const winPositions = [[0,1,2],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8]]
+  const winPositions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+  ];
 
-for (let i = 0; i < winPositions.length; i++) {
-  const [a,b,c] = winPositions[i]
-  if(squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-    return squares[a]
+  for (let i = 0; i < winPositions.length; i++) {
+    const [a, b, c] = winPositions[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
   }
-}
-
-  
 }
 
 const Square = ({ value, onClick }) => {
@@ -61,22 +68,20 @@ const Status = ({ squares, xIsCurrentPlayer }) => {
   );
 };
 
-
 const Game = () => {
-const [squares, setSquares] = useState(Array(9).fill(null))
-const [xIsCurrentPlayer, setxIsCurrentPlayer] = useState(true)
-  
+  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsCurrentPlayer, setxIsCurrentPlayer] = useState(true);
 
   const handleClick = (clickedSquareIndex) => {
-if(squares[clickedSquareIndex] || calculateWinner(squares)) {
-  return
-}
+    if (squares[clickedSquareIndex] || calculateWinner(squares)) {
+      return;
+    }
 
-    const newSquares = [...squares]
-    newSquares[clickedSquareIndex] = xIsCurrentPlayer ? "X" : "0"
-    setSquares(newSquares)
+    const newSquares = [...squares];
+    newSquares[clickedSquareIndex] = xIsCurrentPlayer ? "X" : "0";
+    setSquares(newSquares);
 
-    setxIsCurrentPlayer(!xIsCurrentPlayer)
+    setxIsCurrentPlayer(!xIsCurrentPlayer);
   };
 
   return (

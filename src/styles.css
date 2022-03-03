@@ -55,14 +55,6 @@ ul {
   margin-left: 20px;
 }
 
-/*
- * --- spicing up components ---
- */
-/* square: 
- - bigger size and font
- - nice background color & transition
- - pointer cursor
-*/
 .square {
   font-size: 4rem;
   height: 140px;
@@ -91,9 +83,6 @@ ul {
   z-index: 10;
 }
 
-/* Game: 
- - center stage it
-*/
 .game {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -185,4 +174,3 @@ h3 {
   padding: 1rem;
   font-size: 2rem;
 }
-
